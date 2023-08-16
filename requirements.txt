@@ -68,3 +68,5 @@ webargs==8.3.0
 Werkzeug==2.2.3
 wrapt==1.14.1
 zipp==3.11.0
+gunicorn==21.2.0
+
