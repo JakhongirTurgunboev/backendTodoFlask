@@ -20,7 +20,6 @@ jwt = JWTManager(app)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
-app.config["TASKS_PER_PAGE"] = 3
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -71,7 +70,7 @@ class Items(MethodResource, Resource):
     @marshal_with(resultFields)
     def get(self):
         page = request.args.get('page', default=1, type=int)
-        per_page = request.args.get('per_page', default=3, type=int)
+        per_page = request.args.get('per_page', default=4, type=int)
 
         tasks = Task.query.paginate(page=page, per_page=per_page)
         results = {
